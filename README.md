@@ -11,26 +11,54 @@ For each of the following topics, please answer each of the questions. You can u
 
 1. What is the role of a join table in a many-to-many relationship?
 
+The join table sits between the two other tables of a many-to-many relationshipstores, to store separate records for each combination of that tables.
 
 2. What two columns must be present in a join table?
-
+the primary keys for each table
 
 3. Given the example below, edit the code to define a has many :through relationship.
 
     ```ruby
     class Customer < ActiveRecord::Base
+    has_many :purchases
+    has_many :products, through: :purchases
     end
 
     class Product < ActiveRecord::Base
+    has_many :purchases
+    has_many :customers, through: :purchases
     end
 
     class Purchase < ActiveRecord::Base
+    belongs_to :products
+    belongs_to :customers
     end
     ```
 
 
 4. Based on #3, give an example of associating two instances via the join model.
-
+```ruby
+class CreateAppointments < ActiveRecord::Migration[5.0]
+  def change
+    create_table :customers do |t|
+      t.string :name
+      t.timestamps
+    end
+ 
+    create_table :products do |t|
+      t.string :name
+      t.timestamps
+    end
+ 
+    create_table :purchases do |t|
+      t.belongs_to :customer
+      t.belongs_to :product
+      t.datetime :purchase_date
+      t.timestamps
+    end
+  end
+end
+```
 
 
 ## Devise
