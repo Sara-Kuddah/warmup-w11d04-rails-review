@@ -5,7 +5,7 @@ For each of the following topics, please answer each of the questions. You can u
 ## Has many Through
 
 - [Rails Active Record Intro](https://github.com/sei-entropy/lesson-w11d02-rails-active-record#active-record-associations)
--[Hospital App](https://github.com/sei-entropy/hw-w11d02-rails-hospital)
+- [Hospital App](https://github.com/sei-entropy/hw-w11d02-rails-hospital)
 
 ### Questions
 
